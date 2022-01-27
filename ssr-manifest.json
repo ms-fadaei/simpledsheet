@@ -1,0 +1,48 @@
+{
+  "vite/modulepreload-polyfill": [],
+  "src/composables/dark.ts": [],
+  "src/components/Footer.vue": [],
+  "src/App.vue": [],
+  "node_modules/@unocss/reset/tailwind.css": [],
+  "src/styles/main.css": [],
+  "../../../../../__uno.css": [],
+  "src/main.ts": [],
+  "index.html": [],
+  "assets/app.78f0b7f0.js-unocss-hash.css": [],
+  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/vue/dist/vue.runtime.esm-bundler.js": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/@vueuse/head/dist/index.mjs": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/vite-ssg/dist/chunks/state.mjs": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/vite-ssg/dist/chunks/ClientOnly.mjs": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/vite-ssg/dist/client/single-page.mjs": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/@vueuse/core/node_modules/vue-demi/lib/index.mjs": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/@vueuse/core/node_modules/@vueuse/shared/index.mjs": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ],
+  "node_modules/@vueuse/core/index.mjs": [
+    "https://ms-fadaei.github.io/simpledsheet/assets/vendor.b31af521.js"
+  ]
+}
