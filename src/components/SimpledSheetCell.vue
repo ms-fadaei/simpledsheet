@@ -1,19 +1,20 @@
 <template>
-  <span v-if="mode === 'show'" class="flex items-center p-1 w-24 h-10" @click="mode = 'edit'">
-    {{ value }}
-  </span>
   <input
-    v-else
-    v-model="rawValue"
+    v-if="isEditMode"
+    :value="cells[row - 1][col - 1]"
     class="flex items-center p-1 w-24 h-10"
     @vnode-mounted="onInputMounted"
-    @blur="mode = 'show'"
-    @keydown="(e) => e.keyCode === 13 && (mode = 'show')"
+    @change="updateCell"
+    @blur="isEditMode = false"
+    @keydown="(e) => e.keyCode === 13 && (isEditMode = false)"
   />
+  <span v-else class="flex items-center p-1 w-24 h-10" @click="isEditMode = true">
+    {{ useCellValue(row, col) }}
+  </span>
 </template>
 
 <script setup lang="ts">
-import { useCell } from '~/composables'
+import { useCellValue, useCells } from '~/composables'
 
 const $props = defineProps<{
   row: number
@@ -22,11 +23,15 @@ const $props = defineProps<{
 
 const { row, col } = toRefs($props)
 
-const mode = ref('show')
-const rawValue = ref('')
-const { value } = useCell(row.value, col.value, rawValue)
+const isEditMode = ref(false)
+const cells = useCells()
 
 function onInputMounted({ el }: { el: HTMLInputElement }) {
   el.focus()
+}
+
+function updateCell(e: Event) {
+  const { value } = e.target as HTMLInputElement
+  cells.value[row.value - 1][col.value - 1] = value.toString().trim()
 }
 </script>

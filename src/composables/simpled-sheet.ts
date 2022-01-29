@@ -3,24 +3,30 @@ import { Ref } from 'vue'
 let cells: Ref<string[][]>
 
 export function initCells(rows: number, cols: number) {
-  cells = ref(Array(rows).fill([...Array(cols).fill('')]))
+  cells = ref(
+    Array(rows)
+      .fill('')
+      .map(() => Array(cols).fill(''))
+  )
 }
 
-export function useCell(row: number, col: number, rawValue: Ref<string>) {
-  cells.value[row - 1][col - 1] = rawValue.value
-  watch(rawValue, (value) => (cells.value[row - 1][col - 1] = value))
+export function useCells() {
+  return cells
+}
 
-  const value = computed(() => {
-    const cell = rawValue.value
+export function useCellValue(row: number, col: number) {
+  const value = cells.value[row - 1][col - 1]
 
-    if (cell.startsWith('=')) {
-      return new Function('return ' + cell.slice(1))()
-    } else {
-      return cell
-    }
-  })
+  if (!value.startsWith('=')) return value
 
-  return {
-    value,
+  const formula = value
+    .substring(1)
+    .replace(/([a-zA-Z]+)([0-9]+)/g, `useCellValue($2, "$1".toLowerCase().charCodeAt(0) - 96)`)
+
+  try {
+    const getCellValue = new Function('useCellValue', `return ${formula}`)
+    return getCellValue(useCellValue)
+  } catch (e) {
+    return `Error: ${(e as Error).message}`
   }
 }
