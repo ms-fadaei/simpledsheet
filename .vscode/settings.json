@@ -1,7 +1,8 @@
 {
   "cSpell.words": [
+    "simpled",
     "Simpledsheet",
-    "Vitesse",
+    "Vitesse"
   ],
   "prettier.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",

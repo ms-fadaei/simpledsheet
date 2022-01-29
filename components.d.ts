@@ -5,6 +5,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Footer: typeof import('./src/components/Footer.vue')['default']
+    SimpledSheet: typeof import('./src/components/SimpledSheet.vue')['default']
+    SimpledSheetCell: typeof import('./src/components/SimpledSheetCell.vue')['default']
   }
 }
 
