@@ -2,13 +2,13 @@
   <input
     v-if="isEditMode"
     :value="cells[row - 1][col - 1]"
-    class="flex items-center p-1 w-24 h-10"
+    class="cell-input"
     @vnode-mounted="onInputMounted"
     @change="updateCell"
     @blur="isEditMode = false"
     @keydown="(e) => e.keyCode === 13 && (isEditMode = false)"
   />
-  <span v-else class="flex items-center p-1 w-24 h-10" @click="isEditMode = true">
+  <span v-else class="flex items-center p-1 w-24 h-10 cursor-text" @click="isEditMode = true">
     {{ useCellValue(row, col) }}
   </span>
 </template>
