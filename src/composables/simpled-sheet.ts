@@ -17,7 +17,15 @@ export function useCells() {
 export function useCellValue(row: number, col: number) {
   const value = cells.value[row - 1][col - 1]
 
-  if (!value.startsWith('=')) return value
+  if (!value.startsWith('=')) {
+    const valueInNumber = Number(value)
+
+    if (value === '' || Number.isNaN(valueInNumber)) {
+      return value
+    } else {
+      return valueInNumber
+    }
+  }
 
   const formula = value
     .substring(1)
