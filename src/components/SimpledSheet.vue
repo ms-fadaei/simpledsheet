@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow-x-auto max-w-full">
     <table un-border="collapse 1">
       <thead>
         <tr>
